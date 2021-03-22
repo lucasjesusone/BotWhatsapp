@@ -22,7 +22,7 @@ export default class Music {
     );
 
     // Locais para salvar os arquivos de musica
-    let baseLocation = "A:/Projetos/WhatsAppBotUtils/audios/";
+    let baseLocation = "C:/Users/lucas/Projetos/bootwhatsapp/WhatsAppBotUtils/audios";
     let wavMusicFile = `${baseLocation}${music[0].id}.wav`;
     let mp3MusicFile = `${baseLocation}${music[0].id}.mp3`;
 
