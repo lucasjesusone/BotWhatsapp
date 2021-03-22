@@ -1,0 +1,22 @@
+{
+  "name": "MusicBotWhats",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "sucrase-node index.js"
+  },
+  "dependencies": {
+    "ascii-table": "^0.0.9",
+    "busca-cep": "^0.5.0",
+    "dotenv": "^8.2.0",
+    "ffmpeg-static": "^4.2.7",
+    "fluent-ffmpeg": "^2.1.2",
+    "simple-youtube-api": "^5.2.1",
+    "venom-bot": "^3.0.8",
+    "ytdl-core": "^4.5.0"
+  },
+  "devDependencies": {
+    "sucrase": "^3.17.1"
+  }
+}
