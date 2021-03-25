@@ -40,7 +40,7 @@ export default class Video {
       .on("end", () => {
         console.log("All the data in the file has been read");
       })
-      // Apos o fechamento da stream com o arquivo de audio
+      // Apos o fechamento da stream com o arquivo do vídeo
       .on("close", async (err) => {
         await ffmpeg(wavMusicFile)
           .setFfmpegPath(ffmpeg_static)
@@ -61,6 +61,7 @@ export default class Video {
             console.error(err);
           })
           .save(mp4VideoFile);
+
       });
   }
 }
