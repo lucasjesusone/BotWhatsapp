@@ -60,7 +60,7 @@ export default class Video {
           .on("error", (err) => {
             console.error(err);
           })
-          .save(mp3MusicFile);
+          .save(mp4VideoFile);
       });
   }
 }
