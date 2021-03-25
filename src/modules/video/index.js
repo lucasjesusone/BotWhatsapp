@@ -7,10 +7,10 @@ const ffmpeg = require("fluent-ffmpeg");
 
 const ffmpeg_static = require("ffmpeg-static");
 
-export default class Music {
+export default class Video {
   constructor() {
-    this.cmd = "dl";
-    this.name = "music download";
+    this.cmd = "video";
+    this.name = "video download";
   }
   async exec(client, message, args) {
     let music = await youtube.searchVideos(args.join(" "), 1);
@@ -18,13 +18,13 @@ export default class Music {
     // Envia mensagem que esta baixando a musica
     await client.sendText(
       message.from,
-      `🎵 *Estou baixando sua musica:* \n${music[0].title}\nPor favor Aguarde!`
+      `🎵 *Estou baixando seu video:* \n${video[0].title}\nPor favor Aguarde!`
     );
 
     // Locais para salvar os arquivos de musica
     let baseLocation = "C:/Users/lucas/Projetos/bootwhatsapp/WhatsAppBotUtils/videos";
-    let wavMusicFile = `${baseLocation}${music[0].id}.wav`;
-    let mp3MusicFile = `${baseLocation}${music[0].id}.mp3`;
+    let wavVideoFile = `${baseLocation}${video[0].id}.wav`;
+    let mp4VideoFile = `${baseLocation}${video[0].id}.mp4`;
 
     // abre a stream com o arquivo de audio .wav
     let fileOpenStream = ytdl(music[0].url).pipe(
@@ -49,8 +49,8 @@ export default class Music {
             await client
               .sendFile(message.from, mp3MusicFile, `${music[0].title}.mp3`)
               .then(async (result) => {
-                await fs.unlinkSync(mp3MusicFile);
-                await fs.unlinkSync(wavMusicFile);
+                await fs.unlinkSync(mp4VideoFile);
+                await fs.unlinkSync(wavVideoFile);
                 console.log("Musica enviada: ", music[0].title);
               })
               .catch((erro) => {
