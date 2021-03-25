@@ -9,7 +9,7 @@ const ffmpeg_static = require("ffmpeg-static");
 
 export default class Music {
   constructor() {
-    this.cmd = "dl";
+    this.cmd = "music";
     this.name = "music download";
   }
   async exec(client, message, args) {

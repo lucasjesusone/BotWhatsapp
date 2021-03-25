@@ -28,7 +28,7 @@ export default class Video {
 
     // abre a stream com o arquivo de audio .wav
     let fileOpenStream = ytdl(music[0].url).pipe(
-      await fs.createWriteStream(wavMusicFile)
+      await fs.createWriteStream(wavVideoFile)
     );
 
     // Stream data from audio file
@@ -44,14 +44,14 @@ export default class Video {
       .on("close", async (err) => {
         await ffmpeg(wavMusicFile)
           .setFfmpegPath(ffmpeg_static)
-          .format("mp3")
+          .format("mp4")
           .on("end", async () => {
             await client
-              .sendFile(message.from, mp3MusicFile, `${music[0].title}.mp3`)
+              .sendFile(message.from, mp3VideoFile, `${music[0].title}.mp4`)
               .then(async (result) => {
                 await fs.unlinkSync(mp4VideoFile);
                 await fs.unlinkSync(wavVideoFile);
-                console.log("Musica enviada: ", music[0].title);
+                console.log("Video enviado: ", video[0].title);
               })
               .catch((erro) => {
                 console.error("Error when sending: ", erro);
