@@ -15,7 +15,7 @@ export default class Music {
   async exec(client, message, args) {
     let music = await youtube.searchVideos(args.join(" "), 1);
 
-    
+
     // Envia mensagem que esta baixando a musica
     await client.sendText(
       message.from,
@@ -31,6 +31,7 @@ export default class Music {
     let fileOpenStream = ytdl(music[0].url, { filter: "audioonly" }).pipe(
       await fs.createWriteStream(wavMusicFile)
     );
+    
 
     // Stream data from audio file
     fileOpenStream
