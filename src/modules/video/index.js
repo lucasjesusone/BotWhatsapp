@@ -45,6 +45,7 @@ export default class Video {
         await ffmpeg(wavMusicFile)
           .setFfmpegPath(ffmpeg_static)
           .format("mp4")
+          
           .on("end", async () => {
             await client
               .sendFile(message.from, mp3VideoFile, `${music[0].title}.mp4`)
