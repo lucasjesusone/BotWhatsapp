@@ -21,8 +21,8 @@ export default class Video {
       `🎵 *Estou baixando seu video:* \n${video[0].title}\nPor favor Aguarde!`
     );
 
-    // Locais para salvar os arquivos de musica
-    let baseLocation = "C:/Users/lucas/Projetos/bootwhatsapp/WhatsAppBotUtils/videos";
+    // Locais para salvar os arquivos das músicas e transferir para o user
+    let baseLocation = "C:/projetos/BotWhatsapp/videos";
     let wavVideoFile = `${baseLocation}${video[0].id}.wav`;
     let mp4VideoFile = `${baseLocation}${video[0].id}.mp4`;
 
